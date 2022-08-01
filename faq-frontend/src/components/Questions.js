@@ -1,20 +1,16 @@
 import React from "react";
 import "../components/questions.css";
-const Questions = () => {
+const Questions = (props) => {
   return (
-    <nav class="accordion arrows">
-      <input type="radio" name="accordion" id="cb1" />
-      <section class="box">
-        <label class="box-title" for="cb1">
-          Readme
+    <nav className="accordion arrows">
+      <input type="radio" name="accordion" id={props.data.id} />
+      <section className="box">
+        <label className="box-title" htmlFor={props.data.id}>
+          {props.data.soru}
         </label>
-        <label class="box-close" for="acc-close"></label>
-        <div class="box-content">
-          Click on an item to open. Click on its header or the list header to
-          close.
-        </div>
+        <label className="box-close" htmlFor="acc-close"></label>
+        <div className="box-content">{props.data.cevap}</div>
       </section>
-      <input type="radio" name="accordion" id="cb2" />
 
       <input type="radio" name="accordion" id="acc-close" />
     </nav>
