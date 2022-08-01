@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  height: 100px;
+  background-image: url("https://www.zembula.com/wp-content/uploads/2019/10/header-background-01.png");
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+  font-size: 32px;
+  justify-content: center;
+  align-items: flex-end;
+}
+.box2 {
+  background: #00bcd4;
+  z-index: 10;
+  width: 55.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 22.2%;
+  cursor: initial;
+  box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, 0.12),
+    0 2px 4px -4px rgba(0, 0, 0, 0.24);
+}
+.body {
+  /* For browsers that do not support gradients */
+  background-image: linear-gradient(rgb(20, 216, 226), rgb(75, 75, 29));
+  height: 800px;
+}
