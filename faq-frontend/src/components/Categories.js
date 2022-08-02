@@ -1,15 +1,14 @@
 import React from "react";
 import "./Categories.css";
+import { Link } from "react-router-dom";
 const Categories = (props) => {
+  const { onClick } = props;
   return (
-    <a href={`/${props.CategoryData.kategoriId} `}>
-      <button
-        className="button-85"
-        onClick={(e) => props.setFilterCategory(e.target.kategoriId)}
-      >
-        {props.CategoryData.kategoriName}
+    <>
+      <button type="button" className="button-85" onClick={onClick}>
+        {props.CategoryData.kategoriName}{" "}
       </button>
-    </a>
+    </>
   );
 };
 export default Categories;

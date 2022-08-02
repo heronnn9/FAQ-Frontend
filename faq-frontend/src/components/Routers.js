@@ -7,7 +7,7 @@ function Routers() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
-        <Route path="/:id" element={<Categories />}></Route>
+        <Route path="/category/:kategoriId" element={<App />}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -1,10 +1,11 @@
 import "./App.css";
 import "../src/components/Questions";
 import "../src/components/Categories";
-import React from "react";
+import React, { Fragment } from "react";
 import Questions from "../src/components/Questions";
 import Categories from "../src/components/Categories";
-import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const App = () => {
   const [filterCategory, setFilterCategory] = useState(0);
@@ -61,18 +62,35 @@ const App = () => {
           <div className="box-title">
             <div>
               {CategoryData.map((kategoriData) => (
-                <Categories
-                  CategoryData={kategoriData}
-                  key={kategoriData.kategoriId}
-                />
+                <Fragment key={kategoriData.kategoriId}>
+                  <Categories
+                    CategoryData={kategoriData}
+                    key={kategoriData.kategoriId}
+                    onClick={() => setFilterCategory(kategoriData.kategoriId)}
+                  />
+                </Fragment>
               ))}
             </div>
           </div>
+          <button
+            className="button-86"
+            value={0}
+            key={0}
+            onClick={(e) => setFilterCategory(e.target.value)}
+          >
+            Tüm Sorular
+          </button>
         </div>
         <div>
-          {data.map((expenseData) => (
-            <Questions data={expenseData} key={expenseData.kategoriId} />
-          ))}
+          {filterCategory}
+
+          <Questions
+            data={
+              filterCategory == 0
+                ? data
+                : data.filter((a) => a.kategoriId == filterCategory)
+            }
+          />
         </div>
       </div>
     </>
