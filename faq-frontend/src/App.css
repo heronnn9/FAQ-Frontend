@@ -1,28 +1,31 @@
 .header {
   display: flex;
-  height: 100px;
-  background-image: url("https://www.zembula.com/wp-content/uploads/2019/10/header-background-01.png");
+  height: 200px;
+  background-image: url("https://trafficalm.com/wp-content/uploads/2018/03/faq-header-02.jpg");
   background-size: cover;
-  background-position: 50%;
-  position: relative;
+  background-position: 1%;
+  position: sticky;
   font-size: 32px;
   justify-content: center;
   align-items: flex-end;
+  padding-bottom: 20px;
 }
 .box2 {
-  background: #00bcd4;
+  background: #4449ff;
   z-index: 10;
-  width: 55.5%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 22.2%;
+  text-align: center;
   cursor: initial;
   box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, 0.12),
     0 2px 4px -4px rgba(0, 0, 0, 0.24);
 }
 .body {
-  /* For browsers that do not support gradients */
-  background-image: linear-gradient(rgb(20, 216, 226), rgb(75, 75, 29));
+  background-image: linear-gradient(rgb(18, 31, 221), rgb(42, 69, 81));
   height: 800px;
+}
+.allQuestions {
+  margin-right: 5%;
 }

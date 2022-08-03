@@ -4,8 +4,7 @@ import "../src/components/Categories";
 import React, { Fragment } from "react";
 import Questions from "../src/components/Questions";
 import Categories from "../src/components/Categories";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const App = () => {
   const [filterCategory, setFilterCategory] = useState(0);
@@ -35,6 +34,12 @@ const App = () => {
       soru: "Soru4",
       cevap: "cevap4",
     },
+    {
+      id: 5,
+      kategoriId: 5,
+      soru: "Soru5",
+      cevap: "cevap5",
+    },
   ];
   const CategoryData = [
     {
@@ -53,11 +58,15 @@ const App = () => {
       kategoriId: 4,
       kategoriName: "Entegrasyon",
     },
+    {
+      kategoriId: 5,
+      kategoriName: "Bot",
+    },
   ];
   return (
     <>
       <div className="body">
-        <div className="header">Sıkça Sorulan Sorular</div>
+        <div className="header"></div>
         <div className="box2">
           <div className="box-title">
             <div>
@@ -72,14 +81,16 @@ const App = () => {
               ))}
             </div>
           </div>
-          <button
-            className="button-86"
-            value={0}
-            key={0}
-            onClick={(e) => setFilterCategory(e.target.value)}
-          >
-            Tüm Sorular
-          </button>
+          <div className="allQuestions">
+            <button
+              className="button-86"
+              value={0}
+              key={0}
+              onClick={(e) => setFilterCategory(e.target.value)}
+            >
+              Tüm Sorular
+            </button>
+          </div>
         </div>
         <div>
           {filterCategory}
@@ -88,7 +99,7 @@ const App = () => {
             data={
               filterCategory == 0
                 ? data
-                : data.filter((a) => a.kategoriId == filterCategory)
+                : data.filter((a) => a.kategoriId === filterCategory)
             }
           />
         </div>

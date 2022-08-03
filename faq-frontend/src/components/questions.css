@@ -8,9 +8,10 @@
 }
 .box {
   position: relative;
-  background: white;
+  background: rgba(255, 255, 255, 0.474);
   height: 64px;
   transition: all 0.15s ease-in-out;
+  border-radius: 8px;
 }
 .box::before {
   content: "";
@@ -21,8 +22,6 @@
   left: 0;
   right: 0;
   pointer-events: none;
-  box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12),
-    0 2px 4px rgba(0, 0, 0, 0.24);
 }
 header.box {
   background: #00bcd4;

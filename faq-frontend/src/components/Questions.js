@@ -2,7 +2,6 @@ import React from "react";
 import "../components/questions.css";
 const Questions = (props) => {
   const { data } = props;
-  console.log(data);
   return (
     <>
       {data.map((item) => (

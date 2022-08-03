@@ -1,6 +1,5 @@
 import React from "react";
 import "./Categories.css";
-import { Link } from "react-router-dom";
 const Categories = (props) => {
   const { onClick } = props;
   return (
