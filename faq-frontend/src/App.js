@@ -15,30 +15,35 @@ const App = () => {
       kategoriId: 1,
       soru: "Soru1",
       cevap: "cevap1",
+      kategoriName: "Ürünler",
     },
     {
       id: 2,
       kategoriId: 2,
       soru: "Soru2",
       cevap: "cevap2",
+      kategoriName: "Satış",
     },
     {
       id: 3,
       kategoriId: 3,
       soru: "Soru3",
       cevap: "cevap3",
+      kategoriName: "Sipariş",
     },
     {
       id: 4,
       kategoriId: 4,
       soru: "Soru4",
       cevap: "cevap4",
+      kategoriName: "Entegrasyon",
     },
     {
       id: 5,
       kategoriId: 5,
       soru: "Soru5",
       cevap: "cevap5",
+      kategoriName: "Bot",
     },
   ];
   const CategoryData = [
@@ -93,11 +98,9 @@ const App = () => {
           </div>
         </div>
         <div>
-          {filterCategory}
-
           <Questions
             data={
-              filterCategory == 0
+              filterCategory.toString() === "0"
                 ? data
                 : data.filter((a) => a.kategoriId === filterCategory)
             }
