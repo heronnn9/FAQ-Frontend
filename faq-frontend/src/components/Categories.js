@@ -5,7 +5,7 @@ const Categories = (props) => {
   return (
     <>
       <button type="button" className="button-85" onClick={onClick}>
-        {props.CategoryData.kategoriName}{" "}
+        {props.category.name}{" "}
       </button>
     </>
   );

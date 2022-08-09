@@ -1,0 +1,127 @@
+.header {
+  display: flex;
+  height: 200px;
+  background-image: url("https://trafficalm.com/wp-content/uploads/2018/03/faq-header-02.jpg");
+  background-size: cover;
+  background-position: 1%;
+  position: sticky;
+  font-size: 32px;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+.Anadiv {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+  text-align: center;
+  color: chartreuse;
+}
+body {
+  background-image: linear-gradient(rgb(18, 31, 221), rgb(42, 69, 81));
+  min-height: 100vh;
+  height: 100%;
+}
+.addKategori {
+  border: 1px solid black;
+  width: 31%;
+  min-height: 90vh;
+}
+.AddSoru {
+  border: 1px solid black;
+  width: 31%;
+}
+.AddCevap {
+  border: 1px solid black;
+  width: 31%;
+}
+.Yazısı {
+  border-bottom: 1px solid black;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+  margin-top: 10%;
+  width: 70%;
+  height: 10%;
+  border-radius: 8px;
+  background-color: rgb(38, 145, 145);
+  color: black;
+}
+.button-86 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  margin-left: 2%;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 2em;
+}
+
+.button-86:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-86:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3.8em;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.selects {
+  width: 70%;
+  height: 10%;
+  margin-top: 10%;
+  border-radius: 8px;
+  background-color: rgb(38, 145, 145);
+  color: black;
+}

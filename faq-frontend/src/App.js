@@ -5,69 +5,26 @@ import React, { Fragment } from "react";
 import Questions from "../src/components/Questions";
 import Categories from "../src/components/Categories";
 import { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const App = () => {
   const [filterCategory, setFilterCategory] = useState(0);
+  const [category, setCategory] = useState([]);
+  const [answer, setAnswer] = useState([]);
 
-  const data = [
-    {
-      id: 1,
-      kategoriId: 1,
-      soru: "Soru1",
-      cevap: "cevap1",
-      kategoriName: "Ürünler",
-    },
-    {
-      id: 2,
-      kategoriId: 2,
-      soru: "Soru2",
-      cevap: "cevap2",
-      kategoriName: "Satış",
-    },
-    {
-      id: 3,
-      kategoriId: 3,
-      soru: "Soru3",
-      cevap: "cevap3",
-      kategoriName: "Sipariş",
-    },
-    {
-      id: 4,
-      kategoriId: 4,
-      soru: "Soru4",
-      cevap: "cevap4",
-      kategoriName: "Entegrasyon",
-    },
-    {
-      id: 5,
-      kategoriId: 5,
-      soru: "Soru5",
-      cevap: "cevap5",
-      kategoriName: "Bot",
-    },
-  ];
-  const CategoryData = [
-    {
-      kategoriId: 1,
-      kategoriName: "Ürünler",
-    },
-    {
-      kategoriId: 2,
-      kategoriName: "Sipariş",
-    },
-    {
-      kategoriId: 3,
-      kategoriName: "Satış",
-    },
-    {
-      kategoriId: 4,
-      kategoriName: "Entegrasyon",
-    },
-    {
-      kategoriId: 5,
-      kategoriName: "Bot",
-    },
-  ];
+  React.useEffect(() => {
+    axios.get("http://localhost:8000/api/Answer").then((resp) => {
+      setAnswer(resp.data);
+    });
+  }, []);
+  React.useEffect(() => {
+    axios.get("http://localhost:8000/api/Category").then((respo) => {
+      setCategory(respo.data);
+    });
+  }, []);
+  //Scope nedir ?
+
   return (
     <>
       <div className="body">
@@ -75,12 +32,12 @@ const App = () => {
         <div className="box2">
           <div className="box-title">
             <div>
-              {CategoryData.map((kategoriData) => (
-                <Fragment key={kategoriData.kategoriId}>
+              {category.map((kategoriData) => (
+                <Fragment key={kategoriData.id}>
                   <Categories
-                    CategoryData={kategoriData}
-                    key={kategoriData.kategoriId}
-                    onClick={() => setFilterCategory(kategoriData.kategoriId)}
+                    category={kategoriData}
+                    key={kategoriData.id}
+                    onClick={() => setFilterCategory(kategoriData.id)}
                   />
                 </Fragment>
               ))}
@@ -96,15 +53,22 @@ const App = () => {
               Tüm Sorular
             </button>
           </div>
+          <Link to="/test" className="button-86">
+            NextPage
+          </Link>
         </div>
         <div>
-          <Questions
-            data={
-              filterCategory.toString() === "0"
-                ? data
-                : data.filter((a) => a.kategoriId === filterCategory)
-            }
-          />
+          {
+            <Questions
+              answer={
+                filterCategory.toString() === "0"
+                  ? answer
+                  : answer.filter(
+                      (a) => a.question.category.id === filterCategory
+                    )
+              }
+            />
+          }
         </div>
       </div>
     </>

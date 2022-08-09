@@ -24,7 +24,8 @@
 }
 .body {
   background-image: linear-gradient(rgb(18, 31, 221), rgb(42, 69, 81));
-  height: 50em;
+  min-height: 100vh;
+  height: 100%;
 }
 .allQuestions {
   margin-right: 5%;
