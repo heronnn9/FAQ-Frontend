@@ -12,11 +12,11 @@ const Questions = (props) => {
               <input type="radio" name="accordion" id={item.id} />
               <section className="box">
                 <label className="box-title" htmlFor={item.id}>
-                  {item.question.questionDetail}
+                  {item.questionDetail}
                 </label>
                 <label className="box-close" htmlFor="acc-close"></label>
 
-                <div className="box-content">{item.answers}</div>
+                <div className="box-content">{item.answerDetail}</div>
               </section>
               <input type="radio" name="accordion" id="acc-close" />
             </nav>

@@ -14,7 +14,7 @@ const App = () => {
   const [answer, setAnswer] = useState([]);
 
   React.useEffect(() => {
-    axios.get("http://localhost:8000/api/Answer").then((resp) => {
+    axios.get("http://localhost:8000/api/Question").then((resp) => {
       setAnswer(resp.data);
     });
   }, []);
@@ -28,21 +28,7 @@ const App = () => {
   return (
     <>
       <div className="body">
-        <div className="header"></div>
-        <div className="box2">
-          <div className="box-title">
-            <div>
-              {category.map((kategoriData) => (
-                <Fragment key={kategoriData.id}>
-                  <Categories
-                    category={kategoriData}
-                    key={kategoriData.id}
-                    onClick={() => setFilterCategory(kategoriData.id)}
-                  />
-                </Fragment>
-              ))}
-            </div>
-          </div>
+        <div className="header">
           <div className="allQuestions">
             <button
               className="button-86"
@@ -52,10 +38,24 @@ const App = () => {
             >
               Tüm Sorular
             </button>
+            <button className="button-86">Add Category</button>
+            <Link to="/test" className="link">
+              Add Qu Ans
+            </Link>
           </div>
-          <Link to="/test" className="button-86">
-            NextPage
-          </Link>
+        </div>
+        <div className="box2">
+          <div className="box-title">
+            {category.map((kategoriData) => (
+              <Fragment key={kategoriData.id}>
+                <Categories
+                  category={kategoriData}
+                  key={kategoriData.id}
+                  onClick={() => setFilterCategory(kategoriData.id)}
+                />
+              </Fragment>
+            ))}
+          </div>
         </div>
         <div>
           {
@@ -63,9 +63,7 @@ const App = () => {
               answer={
                 filterCategory.toString() === "0"
                   ? answer
-                  : answer.filter(
-                      (a) => a.question.category.id === filterCategory
-                    )
+                  : answer.filter((a) => a.category.id === filterCategory)
               }
             />
           }

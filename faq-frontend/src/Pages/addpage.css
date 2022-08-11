@@ -4,7 +4,6 @@
   background-image: url("https://trafficalm.com/wp-content/uploads/2018/03/faq-header-02.jpg");
   background-size: cover;
   background-position: 1%;
-  position: sticky;
   font-size: 32px;
   justify-content: center;
   align-items: flex-end;
@@ -12,8 +11,9 @@
 }
 .Anadiv {
   display: flex;
-  justify-content: space-between;
-  margin-top: 3%;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
   text-align: center;
   color: chartreuse;
 }
@@ -22,21 +22,14 @@ body {
   min-height: 100vh;
   height: 100%;
 }
-.addKategori {
-  border: 1px solid black;
+.AddSoru {
+  border: 3px solid black;
+  border-radius: 8px;
   width: 31%;
   min-height: 90vh;
 }
-.AddSoru {
-  border: 1px solid black;
-  width: 31%;
-}
-.AddCevap {
-  border: 1px solid black;
-  width: 31%;
-}
 .Yazısı {
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
   height: 15vh;
   display: flex;
   justify-content: center;
@@ -51,6 +44,9 @@ body {
   color: black;
 }
 .button-86 {
+  display: flex;
+  margin-top: 10%;
+  text-align: center;
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -124,4 +120,21 @@ body {
   border-radius: 8px;
   background-color: rgb(38, 145, 145);
   color: black;
+}
+.button-87 {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  margin-top: 10%;
+  width: 95%;
+  height: 10%;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: chartreuse;
+  background: rgb(38, 145, 145);
+  margin-left: 2%;
+  border-radius: 10px;
+  margin-right: 2em;
 }

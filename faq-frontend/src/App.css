@@ -1,19 +1,17 @@
 .header {
-  display: flex;
   height: 200px;
   background-image: url("https://trafficalm.com/wp-content/uploads/2018/03/faq-header-02.jpg");
   background-size: cover;
   background-position: 1%;
-  position: sticky;
   font-size: 32px;
-  justify-content: center;
-  align-items: flex-end;
   padding-bottom: 20px;
 }
 .box2 {
   background: #4449ff;
   z-index: 10;
   width: 100%;
+  min-height: auto;
+  max-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,5 +26,17 @@
   height: 100%;
 }
 .allQuestions {
-  margin-right: 5%;
+  display: flex;
+  margin-left: 30em;
+}
+.link {
+  font-size: large;
+  color: whitesmoke;
+  width: 5em;
+  height: 3em;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: #4449ff;
+  text-decoration: none;
 }

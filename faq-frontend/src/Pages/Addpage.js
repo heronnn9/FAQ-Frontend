@@ -5,9 +5,10 @@ import axios from "axios";
 
 const Addpage = () => {
   const [category, setCategory] = useState([]);
-  const [name, setName] = useState("");
   const [question, setQuestion] = useState([]);
   const [questionDetail, setQuestionDetail] = useState("");
+  const [questionId, setQuestionId] = useState("");
+  const [answerDetail, setAnswerDetail] = useState("");
 
   React.useEffect(() => {
     axios.get("http://localhost:8000/api/Category").then((respo) => {
@@ -15,47 +16,43 @@ const Addpage = () => {
     });
   }, []);
 
-  const handleSubmit = (e) => {
-    axios
-      .post("http://localhost:8000/api/Category", { name: name })
-      .then((respo) => {
-        setCategory([...category, { id: 0, name: name }]);
-      });
-    setName("");
-  };
+  React.useEffect(() => {
+    axios.get("https://localhost:8000/api/Question").then((respon) => {
+      setQuestion(respon.data);
+    });
+  }, []);
+
   const addQuestion = (e) => {
     axios
-      .post("https://localhost:8000/api/Question", {
+      .post("http://localhost:8000/api/Question", {
         questionDetail: questionDetail,
+        categoryId: parseInt(questionId),
+        answerDetail: answerDetail,
       })
       .then((respo) => {
-        setQuestion([...question, { id: 0, questionDetail: questionDetail }]);
+        console.log(respo.status);
+        setQuestion([...question]);
+      })
+      .catch((err) => {
+        console.log(err.response.status);
       });
     setQuestionDetail("");
+    setAnswerDetail("");
+    console.log(questionId);
   };
 
   return (
     <div>
       <div className="header"></div>
       <div className="Anadiv">
-        <div className="addKategori">
-          <div className="Yazısı">Kategori Ekle</div>
-          <input
-            className="input"
-            placeholder="Kategori Adı"
-            type="text"
+        <div className="AddSoru">
+          <div className="Yazısı">Sorunuzu Ve Cevabızı Giriniz</div>
+          <select
             name=""
             id=""
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button type="submit" className="button-86" onClick={handleSubmit}>
-            Add
-          </button>
-        </div>
-        <div className="AddSoru">
-          <div className="Yazısı">Soru Ekle</div>
-          <select name="" id="" className="selects">
+            className="selects"
+            onChange={(e) => setQuestionId(e.target.value)}
+          >
             {category.map((selected) => (
               <option key={selected.id} value={selected.id} id={"my-element"}>
                 {selected.name}
@@ -71,12 +68,19 @@ const Addpage = () => {
             value={questionDetail}
             onChange={(e) => setQuestionDetail(e.target.value)}
           />
-          <button type="submit" className="button-86" onClick={addQuestion}>
+
+          <input
+            type="text"
+            className="input"
+            placeholder="Cevabınızı Giriniz"
+            name=""
+            id=""
+            value={answerDetail}
+            onChange={(e) => setAnswerDetail(e.target.value)}
+          />
+          <button type="button" className="button-87" onClick={addQuestion}>
             Add
           </button>
-        </div>
-        <div className="AddCevap">
-          <div className="Yazısı">Cevap Ekle</div>
         </div>
       </div>
     </div>

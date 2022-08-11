@@ -39,8 +39,8 @@ header .box-title {
 }
 .box-title {
   width: calc(100% - 40px);
-  height: 64px;
-  line-height: 64px;
+  height: 100%;
+  line-height: 50px;
   padding: 0 20px;
   display: inline-block;
   cursor: pointer;
